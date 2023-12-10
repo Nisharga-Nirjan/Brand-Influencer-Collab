@@ -1,5 +1,5 @@
 # Brand-Influencer-Collab
-Welcome to this website which has been built using `Angular CLI(For frontend)` and `Springboot Java(For Backend)`. This website intends to create a common platform where brand and influencers can collaborate for work purpose and build their profile.
+Welcome to this website which has been built using `Angular CLI(For frontend)` and `Springboot Java(For Backend)`. Also, for database,` 10.4.22-MariaDB` was used using `XAMPP Control Panel v3.3.0`  This website intends to create a common platform where brand and influencers can collaborate for work purpose and build their profile.
 
 # Project Description:
 This project features a web system where users(Brands,Influencers) will create their individual profile. After logging in as a Brand, they will be able to see different influencer’s profiles in their home page/news feed. Brands can hire influencers, contact them, pay them and give reviews through this website. Same procedure will exist for the influencers. They can see different brand deals on their homepage, apply if brands are hiring influencers, contact them, accept the hiring request and give review. Furthermore, Admin will manage all the registered users and will be able to communicate with them through a live chat.
