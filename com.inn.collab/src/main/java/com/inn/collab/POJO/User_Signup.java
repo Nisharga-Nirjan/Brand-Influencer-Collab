@@ -26,7 +26,7 @@ import java.io.Serializable;
 
 @NamedQuery(name = "User_Signup.getAllAdmin", query = "select u.email from User_Signup u where u.role='admin'")
 
-@NamedQuery(name = "User_Signup.SeeAllProfiles", query = "SELECT new com.inn.collab.wrapper.UserWrapper(u.id, u.email, u.name, u.gender, u.origin_city, u.location, u.status, u.role, u.phone, u.established_year, u.website, u.facebook, u.instagram, u.twitter, u.youtube, u.experience_year, u.english_proficiency) FROM User_Signup u WHERE u.id <> :id ORDER BY u.role,u.name")
+@NamedQuery(name = "User_Signup.SeeAllProfiles", query = "SELECT new com.inn.collab.wrapper.UserWrapper(u.id, u.email, u.name, u.gender, u.origin_city, u.location, u.status, u.role, u.phone, u.established_year, u.website, u.facebook, u.instagram, u.twitter, u.youtube, u.experience_year, u.english_proficiency) FROM User_Signup u WHERE u.id <> :id AND u.role in ('influencer', 'brand') ORDER BY u.role,u.name")
 
 @NamedQuery(name = "User_Signup.SeeAllUserProfiles", query = "SELECT new com.inn.collab.wrapper.UserWrapper(u.id, u.email, u.name, u.gender, u.origin_city, u.location, u.status, u.role, u.phone, u.established_year, u.website, u.facebook, u.instagram, u.twitter, u.youtube, u.experience_year, u.english_proficiency) FROM User_Signup u WHERE u.id <> :id AND u.role in ('influencer', 'brand') ORDER BY u.role,u.name")
 
