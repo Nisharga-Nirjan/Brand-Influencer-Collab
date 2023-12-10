@@ -1,4 +1,4 @@
-# Brand-Influencer-Collab [Still named as CwhTodoList. Will change it later]
+# Frontend of Brand-Influencer-Collab [Still named as CwhTodoList. Will change it later]
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
