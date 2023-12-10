@@ -1,0 +1,61 @@
+.registered-profiles {
+  border: 1px solid #8EC7E6; /* Complimentary color border */
+  border-radius: 0; /* Add border-radius for rounded corners */
+  padding: 20px; /* Add padding for spacing */
+}
+
+h2 {
+  font-size: 32px;
+  color: #3498db;
+  margin-bottom: 15px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.profile-item {
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.name,
+.email {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.name {
+  color: #2ecc71;
+  font-weight: bold;
+}
+
+.email {
+  color: #e74c3c;
+  font-style: italic;
+}
+
+.profile-item:hover .name,
+.profile-item:hover .email {
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .profile-item {
+    width: 100%;
+  }
+}

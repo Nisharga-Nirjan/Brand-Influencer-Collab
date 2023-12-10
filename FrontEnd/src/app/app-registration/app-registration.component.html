@@ -1,0 +1,74 @@
+<!-- app-registration.component.html -->
+
+<body>
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-registration my-4">
+          <div class="row g-0">
+            <div class="col-xl-6 d-none d-xl-block">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                alt="Sample photo" class="img-fluid"
+                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+            </div>
+            <div class="col-xl-6">
+              <div class="card-body p-md-5 text-black">
+                <h3 class="mb-5 text-uppercase">Registration form</h3>
+
+                <form (ngSubmit)="submitForm()" #registrationForm="ngForm">
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input [(ngModel)]="email" name="email" id="email" class="form-control form-control-lg" required />
+                        <label class="form-label" for="email">Email</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input [(ngModel)]="brandName" name="brandName" id="brandName" class="form-control form-control-lg" required />
+                        <label class="form-label" for="brandName">Brand name / Influencer name</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input [(ngModel)]="password" name="password" id="password" type="password" class="form-control form-control-lg" required />
+                        <label class="form-label" for="password">Password</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input [(ngModel)]="tinNumber" name="tinNumber" id="tinNumber" class="form-control form-control-lg" required />
+                        <label class="form-label" for="tinNumber">BIN / NID</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input [(ngModel)]="originCity" name="originCity" id="originCity" class="form-control form-control-lg" required />
+                    <label class="form-label" for="originCity">Origin City</label>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input [(ngModel)]="location" name="location" id="location" class="form-control form-control-lg" required />
+                    <label class="form-label" for="location">Location</label>
+                  </div>
+
+                  <div class="d-flex justify-content-end pt-3">
+                    <button type="submit" class="btn btn-warning btn-lg ms-2" [disabled]="!registrationForm.form.valid">Submit form</button>
+                  </div>
+                  <div *ngIf="registrationMessage" class="mt-3 alert alert-success" role="alert">
+                    {{ registrationMessage }}
+                  </div>
+                </form>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

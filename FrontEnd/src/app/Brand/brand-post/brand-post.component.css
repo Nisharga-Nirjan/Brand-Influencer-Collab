@@ -1,0 +1,229 @@
+body {
+  margin: 0; /* Reset body margin to ensure full-width background */
+  background: #8EC7E6;
+  font-family: 'Asap', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  padding-top: 30px;
+  background: #8EC7E6;
+  height: 100%; /* Set the height to 100% */
+}
+.tweet-wrap {
+  max-width: 490px;
+  background: #f9f9f9;
+  margin: 0 auto;
+  margin-top: 30px;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.tweet-header {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.tweet-header-info {
+  margin-left: 10px;
+}
+
+.tweet-header-info h5 {
+  font-size: 18px;
+  margin: 0;
+  color: #333;
+}
+
+.tweet-header-info .post-email {
+  font-size: 10px;
+  color: #555;
+}
+
+.tweet-header-info .post-date {
+  font-size: 10px;
+  color: #777;
+}
+
+.tweet-header-info p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.tweet-info-counts {
+  position: relative;
+}
+
+.request-button {
+  background-color: #8ab1ff;
+  color: #ffffff;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 20px; /* Rounded corners */
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+  font-size: 12px;
+}
+
+.request-button:hover {
+  background-color: #6a8fda;
+  transform: scale(1.1);
+}
+
+.request-button:active {
+  background-color: #5074bb;
+  transform: scale(0.9);
+}
+
+
+@keyframes jumpAnimation {
+  0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+  }
+  40% {
+      transform: translateY(-20px);
+  }
+  60% {
+      transform: translateY(-10px);
+  }
+}
+
+
+.post-date {
+  font-size: 12px;
+  color: #777;
+}
+
+.post-content {
+  font-size: 16px;
+  color: #333;
+}
+
+@media screen and (max-width: 430px) {
+  .tweet-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tweet-info-counts {
+    margin-left: 0;
+  }
+
+  .tweet-info-counts div {
+    margin-right: 10px;
+  }
+}
+
+
+
+
+
+
+
+
+.influencers-list {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 10px;
+  max-height: 200px; /* Set a max height and add overflow for a scroll effect */
+  overflow-y: auto;
+}
+
+.influencer-item {
+  padding: 8px; /* Decreased padding */
+  transition: background-color 0.3s ease;
+  margin-bottom: 8px; /* Increased margin between influencer items */
+  display: flex;
+  flex-direction: column; /* Arrange content in a column */
+  justify-content: space-between;
+}
+
+.influencer-item:last-child {
+  margin-bottom: 0; /* Remove margin from the last item */
+}
+
+.influencer-item:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+/* Style for the influencer labels */
+
+
+/* Style for the influencer name */
+.influencer-name {
+  font-weight: bold;
+  font-size: 1em; /* Adjusted font size */
+}
+
+/* Style for the influencer email */
+.influencer-email {
+  margin-top: -8px; /* Adjusted margin-top */
+  color: #555;
+  font-size: 0.7em; /* Smaller font size for the email */
+}
+
+/* Optional: Add a scroll bar for the influencers list */
+.influencers-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.influencers-list::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+
+
+
+
+
+.influencer-buttons {
+  display: flex;
+}
+
+button {
+  margin-left: 8px; /* Add some left margin between buttons and name */
+  color: #ffffff; /* Adjusted button text color */
+  padding: 6px 10px; /* Adjusted button padding */
+  border: none;
+  border-radius: 10px; /* Adjusted button border radius */
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Added transition property */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+  font-size: 10px; /* Adjusted button font size */
+}
+
+button.hire-button {
+  background-color: #4CAF50; /* Green color for Hire button */
+}
+
+button.reject-button {
+  background-color: #FF5733; /* Red color for Reject button */
+}
+
+button.hire-button:hover {
+  background-color: #388E3C;
+  transform: scale(1.1);
+}
+
+button.hire-button:active {
+  background-color: #4CAF50;
+  transform: scale(0.9);
+}
+
+button.reject-button:hover {
+  background-color: #D9534F;
+  transform: scale(1.1);
+}
+
+button.reject-button:active {
+  background-color: #FF5733;
+  transform: scale(0.9);
+}

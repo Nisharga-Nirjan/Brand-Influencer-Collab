@@ -1,0 +1,155 @@
+body {
+  margin: 0; /* Reset body margin to ensure full-width background */
+  background: #8EC7E6;
+  font-family: 'Asap', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  padding-top: 30px;
+  background: #8EC7E6;
+  height: 100%; /* Set the height to 100% */
+}
+.tweet-wrap {
+  max-width: 490px;
+  background: #f9f9f9;
+  margin: 0 auto;
+  margin-top: 30px;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tweet-header {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.tweet-header-info {
+  margin-left: 10px;
+}
+
+.tweet-header-info h5 {
+  font-size: 18px;
+  margin: 0;
+  color: #333;
+}
+
+.tweet-header-info .post-email {
+  font-size: 10px;
+  color: #555;
+}
+
+.tweet-header-info .post-date {
+  font-size: 10px;
+  color: #777;
+}
+
+.tweet-header-info p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.tweet-info-counts {
+  position: relative;
+}
+
+.request-button {
+  background-color: #8ab1ff;
+  color: #ffffff;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 20px; /* Rounded corners */
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+  font-size: 12px;
+}
+
+.request-button:hover {
+  background-color: #6a8fda;
+  transform: scale(1.1);
+}
+
+.request-button:active {
+  background-color: #5074bb;
+  transform: scale(0.9);
+}
+
+
+@keyframes jumpAnimation {
+  0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+  }
+  40% {
+      transform: translateY(-20px);
+  }
+  60% {
+      transform: translateY(-10px);
+  }
+}
+
+
+.post-date {
+  font-size: 12px;
+  color: #777;
+}
+
+.post-content {
+  font-size: 16px;
+  color: #333;
+}
+
+@media screen and (max-width: 430px) {
+  .tweet-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tweet-info-counts {
+    margin-left: 0;
+  }
+
+  .tweet-info-counts div {
+    margin-right: 10px;
+  }
+}
+
+
+
+
+
+
+
+.tweet-header-info .custom-status {
+  font-weight: bold;
+  text-align: right;
+  font-size: 12px; /* Adjust font size */
+  color: inherit; /* Use the color property from the parent (if any) */
+  padding: 6px 10px; /* Adjust padding for a smaller box */
+  border-radius: 15px; /* Rounded corners */
+  display: inline-block; /* Ensures that padding and border don't affect surrounding elements */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add box-shadow for depth */
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add smooth transition */
+}
+
+.tweet-header-info .custom-status:hover {
+  transform: scale(1.05); /* Add a slight scale effect on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increase box-shadow on hover for depth */
+}
+
+.text-green {
+  color: #fff !important; /* Text color for better contrast */
+  background-color: #28a745 !important; /* Green background color */
+}
+
+.text-red {
+  color: #fff !important; /* Text color for better contrast */
+  background-color: #dc3545 !important; /* Red background color */
+}
+
+.text-default {
+  color: #fff !important; /* Text color for better contrast */
+  background-color: #808080 !important; /* Gray background color */
+}

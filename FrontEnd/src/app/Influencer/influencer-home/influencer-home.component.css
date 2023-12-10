@@ -1,0 +1,307 @@
+body {
+  background: #8EC7E6;
+  font-family: 'Asap', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+.tweet-wrap {
+  max-width: 490px;
+  background: #f9f9f9;
+  margin: 0 auto;
+  margin-top: 30px;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tweet-header {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.tweet-header-info {
+  margin-left: 10px;
+}
+
+.tweet-header-info h5 {
+  font-size: 18px;
+  margin: 0;
+  color: #333;
+}
+
+.tweet-header-info .post-email {
+  font-size: 10px;
+  color: #555;
+}
+
+.tweet-header-info .post-date {
+  font-size: 10px;
+  color: #777;
+}
+
+.tweet-header-info p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.tweet-info-counts {
+  display: flex;
+  margin-top: 10px;
+}
+
+.tweet-info-counts div {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.tweet-info-counts div svg {
+  color: #777;
+  margin-right: 5px;
+}
+
+.post-date {
+  font-size: 12px;
+  color: #777;
+}
+
+.post-content {
+  font-size: 16px;
+  color: #333;
+}
+
+@media screen and (max-width: 430px) {
+  .tweet-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tweet-info-counts {
+    margin-left: 0;
+  }
+
+  .tweet-info-counts div {
+    margin-right: 10px;
+  }
+}
+
+/*----------------------------------------------------*/
+
+
+.container{
+  max-width: 1000px;
+  width: 100%;
+  overflow: hidden;
+  padding: 80px 0;
+}
+.container .main-card {
+  display: flex;
+  width: 200%; /* Adjusted to 100% */
+  transition: margin-left 1s; /* Adjusted to margin-left for smooth transition */
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+
+#one:checked ~ .main-card {
+  margin-left: 0;
+}
+
+#two:checked ~ .main-card {
+  margin-left: -51%;
+}
+
+#three:checked ~ .main-card {
+  margin-left: -102%;
+}
+
+#four:checked ~ .main-card {
+  margin-left: -153%;
+}
+
+.container .main-card .cards {
+  
+  display: flex;
+  gap: 20px; /* Adjusted to add space between cards */
+  width: 200%; /* Adjusted to 200% */
+  transition: transform 1s;
+  justify-content: space-between;
+}
+.main-card .cards .card {
+  width: calc(100% / 3 - 10px); /* Adjusted to 4 cards per row */
+  background: #f0f5f9;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.4s ease;
+}
+.main-card .cards .card:hover{
+  transform: translateY(-15px);
+}
+.cards .card .content{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.cards .card .content .img{
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  padding: 3px;
+  background: #77A8D0;
+  margin-bottom: 14px;
+}
+.card .content .img img{
+  height: 100%;
+  width: 100%;
+  border: 3px solid #ffff;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.card .content .name{
+  font-size: 20px;
+  font-weight: 500;
+}
+.card .content .role{
+  font-size: 15px;
+  color: #77A8D0;
+}
+.card .content .media-icons{
+  margin-top: 10px;
+  display: flex;
+
+}
+.media-icons a{
+  text-align: center;
+  line-height: 33px;
+  height: 35px;
+  width: 35px;
+  margin: 0 4px;
+  font-size: 14px;
+  color: #e6f2fd;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: #77A8D0;
+  transition: all 0.3s ease;
+}
+.media-icons a:hover{
+  color: #77A8D0;
+  background-color: #e6f2fd;
+  border-color: #77A8D0;
+}
+ .container .button{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  margin-bottom: -40px;
+}
+.button label{
+  height: 15px;
+  width: 15px;
+  border-radius: 20px;
+  background: #fff;
+  margin: 0 4px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  display: inline-block;
+}
+.button label.active{
+  width: 35px;
+}
+#one:checked ~ .button .one,
+#two:checked ~ .button .two,
+#three:checked ~ .button .three,
+#four:checked ~ .button .four {
+  width: 35px;
+}
+
+#one:checked ~ .button .two,
+#one:checked ~ .button .three,
+#one:checked ~ .button .four,
+#two:checked ~ .button .one,
+#two:checked ~ .button .three,
+#two:checked ~ .button .four,
+#three:checked ~ .button .one,
+#three:checked ~ .button .two,
+#three:checked ~ .button .four,
+#four:checked ~ .button .one,
+#four:checked ~ .button .two,
+#four:checked ~ .button .three {
+  width: 15px;
+}
+
+input[type="radio"]{
+  display: none;
+  background: #e6f2fd;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.tweet-info-counts {
+  position: relative;
+}
+
+.hire-button {
+  background-color: #8ab1ff;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px; /* Rounded corners */
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+  font-size: 12px;
+}
+
+.hire-button:hover {
+  background-color: #6a8fda;
+  transform: scale(1.1);
+}
+
+.hire-button:active {
+  background-color: #5074bb;
+  transform: scale(0.9);
+}
+
+#jumping-button.clicked {
+  animation: jumpAnimation 0.5s ease-in-out;
+}
+
+@keyframes jumpAnimation {
+  0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+  }
+  40% {
+      transform: translateY(-20px);
+  }
+  60% {
+      transform: translateY(-10px);
+  }
+}

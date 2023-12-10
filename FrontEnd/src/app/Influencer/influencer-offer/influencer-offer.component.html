@@ -1,0 +1,15 @@
+<div class="container">
+  <div *ngFor="let post of requestedPosts" class="tweet-wrap">
+    <div class="tweet-header">
+      <div class="tweet-header-info">
+        <h5 class="post-name">{{ post.brand_name }}</h5>
+        <p class="post-email">{{ post.brand_email }}</p>
+        <p class="post-date">{{ post.post_date | date:'MMM d, y h:mm a' }}</p>
+        <p class="post-content">{{ post.post }}</p>
+        <p [ngClass]="['custom-status', getStatusColorClass(post.status)]">
+          {{ post.status }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

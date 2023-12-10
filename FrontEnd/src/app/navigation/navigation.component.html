@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg" >
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="https://raw.githubusercontent.com/Ornate159/Scraps/main/logo.png" alt="" style="width: 100px; height: auto;">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#" style="color: white;">Our Works</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true" style="color: white;">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" style="color: white;">Contact Us</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="ml-auto d-flex">
+      <ng-container *ngIf="isLoggedIn; else loginButtons">
+        <div class="nav-item">
+          <button class="btn btn-sm" style="color: white; background-color: black;" (click)="userRole === 'brand' ? navigateToBrandPost() : navigateToInfluencerOffer()">{{ getButtonLabel() }}</button>
+      </div>
+      <div style="width: 10px;"></div>
+      <div style="width: 10px;"></div>
+        <div class="nav-item">
+          <a [routerLink]="getUserProfileLink()" class="profile-link" style="color: white;">{{ userName }}</a>
+        </div>
+        <div style="width: 10px;"></div>
+        <a class="btn btn-sm" style="color: white; background-color: black;" (click)="logout()">Logout</a>
+      </ng-container>
+      <ng-template #loginButtons>
+        <a (click)="navigateToRegistration()" class="btn btn-sm" style="color: white; background-color: black;">Register</a>
+        <div style="width: 5px;"></div>
+        <a (click)="navigateToLogin()" class="btn btn-sm" style="color: white; background-color: black;">Login</a>
+      </ng-template>
+    </div>
+

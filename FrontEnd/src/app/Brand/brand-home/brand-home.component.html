@@ -1,0 +1,64 @@
+<!-- brand-home.component.html -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+
+
+
+
+
+   <body>
+    <div class="container">
+      <label for="collabButton" class="collab-button">Let's Collab!</label>
+<input type="checkbox" id="collabButton">
+      
+      <div class="post-box">
+        <textarea placeholder="Enter something..." [(ngModel)]="postContent"></textarea>
+        <button class="post-button" (click)="postJob()">Post Offer</button>
+      </div>
+    </div>
+  </body>
+   
+     
+<body>
+
+<div class="container">
+  <input type="radio" name="dot" id="one" checked>
+  <input type="radio" name="dot" id="two">
+  <input type="radio" name="dot" id="three">
+  <input type="radio" name="dot" id="four">
+
+  <div class="main-card">
+    <div class="cards">
+      <div class="card" *ngFor="let profile of profiles" (click)="onProfileCardClick(profile.id)">
+        <div class="content">
+          <div class="img">
+            <img [src]="profile.imgUrl" alt="">
+          </div>
+          <div class="details">
+            <div class="name">{{ profile.name }}</div>
+            <div class="role">{{ profile.role }}</div>
+          </div>
+          <div class="media-icons">
+            <a href="{{ 'https://www.facebook.com/' + profile.facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="{{ 'https://twitter.com/' + profile.twitter }}" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="{{ 'https://www.instagram.com/' + profile.instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="{{ 'https://www.youtube.com/user/' + profile.youtube }}" target="_blank"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>      
+      </div>
+    </div>
+  </div>
+
+  <div class="button">
+    <label for="one" class=" active one"></label>
+    <label for="two" class="two"></label>
+    <label for="three" class="three"></label>
+    <label for="four" class="four"></label>    
+  </div>
+</div>
+</body>
+</html>

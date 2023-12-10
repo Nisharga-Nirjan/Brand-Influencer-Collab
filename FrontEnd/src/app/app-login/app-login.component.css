@@ -1,0 +1,141 @@
+body {
+  background-color: #8EC7E6;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Card Styling */
+.card {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 15px;
+}
+
+/* Form Input Styling */
+.form-outline {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form-outline label {
+  position: absolute;
+  top: 15px; /* Adjusted top position for initial display inside the box */
+  left: 10px;
+  transform: translateY(-50%);
+  color: #495057;
+  transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+}
+
+.form-control {
+  background-color: #ffffff;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+  font-size: 14px; /* Adjust the font size as needed */
+  padding: 10px; /* Adjust padding for better visual */
+}
+
+.form-control:focus {
+  border-color: #393f81;
+}
+
+/* Move label up and change its style when the input is focused */
+.form-control:focus + label,
+.form-control:valid + label {
+  top: -10px;
+  font-size: 12px;
+  color: #e44d26;
+}
+
+/* Optional: Add animation effects on hover for form controls */
+.form-outline:hover .form-control {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Button Styling */
+.btn-dark {
+  background-color: #393f81;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  font-size: 16px; /* Adjust the font size as needed */
+}
+
+.btn-dark:hover {
+  background-color: #1e2151;
+}
+
+/* Alert Styling */
+.alert-danger {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+}
+
+/* Link Styling */
+a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 14px; /* Adjust the font size as needed */
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+/* Section Styling */
+.vh-100 {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: #8EC7E6;
+}
+
+/* Container Styling */
+.container {
+  padding: 2rem;
+}
+
+/* Card Body Styling */
+.card-body {
+  background-color: #ffffff;
+  border-radius: 15px;
+}
+
+/* Heading Styling */
+h5 {
+  color: #393f81;
+  font-size: 20px; /* Adjust the font size as needed */
+}
+
+/* Forgot Password Link Styling */
+.forgot-password-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: #6c757d;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 14px; /* Adjust the font size as needed */
+}
+
+.forgot-password-link:hover {
+  color: #e44d26;
+  text-decoration: underline;
+}
+
+/* Register Link Styling */
+.register-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: #6c757d;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 14px; /* Adjust the font size as needed */
+}
+
+.register-link:hover {
+  color: #e44d26;
+  text-decoration: underline;
+}

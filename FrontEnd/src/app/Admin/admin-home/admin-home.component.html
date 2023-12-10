@@ -1,0 +1,9 @@
+<div class="registered-profiles">
+  <h2>Registered Profiles</h2>
+  <ul>
+    <li *ngFor="let profile of profiles" class="profile-item">
+      <span class="name">{{ profile.name }}</span> | 
+      <span class="email">{{ profile.email }}</span>
+    </li>
+  </ul>
+</div>

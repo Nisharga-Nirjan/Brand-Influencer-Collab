@@ -1,0 +1,74 @@
+<body>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+
+
+
+
+  <div class="container">
+    <input type="radio" name="dot" id="one" checked>
+    <input type="radio" name="dot" id="two">
+    <input type="radio" name="dot" id="three">
+    <input type="radio" name="dot" id="four">
+  
+    <div class="main-card">
+      <div class="cards">
+        <div class="card" *ngFor="let profile of profiles" (click)="onProfileCardClick(profile.id)">
+          <div class="content">
+            <div class="img">
+              <img [src]="profile.imgUrl" alt="">
+            </div>
+            <div class="details">
+              <div class="name">{{ profile.name }}</div>
+              <div class="role">{{ profile.role }}</div>
+            </div>
+            <div class="media-icons">
+              <a href="{{ 'https://www.facebook.com/' + profile.facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="{{ 'https://twitter.com/' + profile.twitter }}" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="{{ 'https://www.instagram.com/' + profile.instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="{{ 'https://www.youtube.com/user/' + profile.youtube }}" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>      
+        </div>
+      </div>
+    </div>
+  
+    <div class="button">
+      <label for="one" class=" active one"></label>
+      <label for="two" class="two"></label>
+      <label for="three" class="three"></label>
+      <label for="four" class="four"></label>    
+    </div>
+  </div>
+
+
+
+  <!-------------------------------------------------------------->
+
+
+
+
+
+<div *ngFor="let post of brandPosts" class="tweet-wrap" >
+  <div class="tweet-header">
+    <div class="tweet-header-info">
+      <h5 class="post-name">{{ post.name }}</h5>
+      <p class="post-email">{{ post.email }}</p>
+      <p class="post-date">{{ post.post_date | date:'MMM d, y h:mm a' }}</p>
+      <p class="post-content">{{ post.post }}</p>
+    </div>
+  </div>
+  
+  <div class="tweet-info-counts">
+    <div class="comments">
+        <button (click)="onHireClick(post.post_id)" class="hire-button" id="jumping-button">
+            Collab!
+        </button>
+    </div>
+</div>
+</div>
+
+</body>

@@ -1,0 +1,77 @@
+/* Add this CSS to your app-registration.component.css */
+
+/* Overall Styling */
+body {
+  background-color: #8EC7E6; /* Dark ash background color */
+  font-family: 'Roboto', sans-serif;
+}
+.card-body {
+  background-color: #ffffff; /* Set your desired form background color */
+}
+/* Card Styling */
+.card-registration {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Box shadow for the card */
+}
+
+/* Form Input Styling */
+.form-outline {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form-outline label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #495057;
+  font-size: 14px;
+  transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+}
+
+.form-control {
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+  font-size: 14px;
+  padding: 10px; /* Adjust padding for better visual */
+}
+
+.form-control:focus {
+  border-color: #393f81;
+}
+
+/* Move label up and change its style when the input is focused */
+.form-control:focus + label,
+.form-control:valid + label {
+  top: -10px;
+  font-size: 12px;
+  color: #e44d26;
+}
+
+/* Optional: Add animation effects on hover for form controls */
+.form-outline:hover .form-control {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Button Styling */
+.btn-warning {
+  background-color: #e44d26; /* Orange background color for the button */
+  color: #ffffff; /* Text color for the button */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.btn-warning:hover {
+  background-color: #c53d22; /* Darker orange background color on hover */
+}
+
+/* Alert Styling */
+.alert-success {
+  background-color: #d4edda; /* Success alert background color */
+  border-color: #c3e6cb; /* Border color for the success alert */
+  color: #155724; /* Text color for the success alert */
+}
+
+/* Optional: Customize other elements as needed */
