@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
-import { Router } from '@angular/router'; // Import the Router
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-brand-profile',
@@ -24,12 +24,28 @@ export class BrandProfileComponent implements OnInit {
   }
 
   onEditProfileClick() {
-    // Use the user's ID or any unique identifier to create a dynamic route
-    // For example, assuming user.id is the unique identifier
     if (this.user && this.user.id) {
       this.router.navigate(['/brand-profile-edit', this.user.id]);
     } else {
       console.error('User ID not found.');
+    }
+  }
+
+  onChangePasswordClick() {
+    const oldPassword = prompt('Enter your old password:');
+    const newPassword = prompt('Enter your new password:');
+
+    if (oldPassword && newPassword) {
+      this.userService.changePassword(oldPassword, newPassword).subscribe(
+        (response) => {
+          console.log('Password changed successfully:', response);
+          // Handle success (e.g., display a success message)
+        },
+        (error) => {
+          console.error('Error changing password:', error);
+          // Handle error (e.g., display an error message)
+        }
+      );
     }
   }
 }

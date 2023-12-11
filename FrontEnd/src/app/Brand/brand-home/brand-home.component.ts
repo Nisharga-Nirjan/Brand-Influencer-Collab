@@ -12,8 +12,7 @@ import { Router } from '@angular/router';
 })
 export class BrandHomeComponent implements OnInit {
   profiles: any[] = [];
-  currentIndex = 0;
-  profilesInView = 4;
+  
   postContent: string = '';
 
   constructor(private userService: UserService, private router: Router) {}
@@ -63,4 +62,13 @@ export class BrandHomeComponent implements OnInit {
     this.router.navigate(['/profile-view', userId]);
   }
   
+
+  handleButtonClick(userId: number): void {
+    this.router.navigate(['/profile-view', userId]);
+  }
+
+
+
+
+
 }

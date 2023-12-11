@@ -55,7 +55,7 @@
 <div *ngFor="let post of brandPosts" class="tweet-wrap" >
   <div class="tweet-header">
     <div class="tweet-header-info">
-      <h5 class="post-name">{{ post.name }}</h5>
+      <h5 class="post-name" id="profileName" (click)="handleButtonClick(post.brand_id)">{{ post.name }}</h5>
       <p class="post-email">{{ post.email }}</p>
       <p class="post-date">{{ post.post_date | date:'MMM d, y h:mm a' }}</p>
       <p class="post-content">{{ post.post }}</p>

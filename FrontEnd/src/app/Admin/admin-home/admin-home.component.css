@@ -1,61 +1,169 @@
-.registered-profiles {
-  border: 1px solid #8EC7E6; /* Complimentary color border */
-  border-radius: 0; /* Add border-radius for rounded corners */
-  padding: 20px; /* Add padding for spacing */
+.collab-profiles {
+  border: 1px solid #ecf5fb;
+  border-radius: 0px;
+  padding: 20px; /* Increased padding for better spacing */
+  font-family: 'Roboto', sans-serif;
+  color: #e74c3c;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added box shadow for a subtle lift */
+  background-color: #ecf5fb;
 }
 
-h2 {
-  font-size: 32px;
-  color: #3498db;
-  margin-bottom: 15px;
+.collab-title {
+  font-size: 42px;
+  margin-bottom: 20px;
+  color: #3498db; /* Adjusted title color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Added text shadow for emphasis */
 }
+
 
 ul {
-  list-style-type: none;
+  list-style-type: none; /* Remove bullets */
   padding: 0;
 }
 
 .profile-item {
+  position: relative; /* Added position relative for positioning the slider */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #f8f9fa;
-  border: 1px solid #ced4da;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  padding: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid #ced4da;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  padding: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
-  width: 80%;
+  max-width: 600px; /* Set a maximum width for the profile item */
   margin-left: auto;
   margin-right: auto;
 }
 
+.profile-content {
+  flex-grow: 1;
+}
+
 .profile-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .name,
-.email {
+.email,
+.role {
   display: block;
   margin-bottom: 5px;
+  border-bottom: none; /* Remove the border between items */
 }
 
 .name {
-  color: #2ecc71;
+  color: #004080; /* Slightly lighter color than #001F3F */
   font-weight: bold;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.name:hover {
+  color: #001F3F; /* Darker color on hover */
 }
 
 .email {
   color: #e74c3c;
-  font-style: italic;
+  margin-top: -5px;
+  font-size: 12px; /* Decreased font size for the email */
+}
+
+.role {
+  font-weight: bold;
+  color: #3498db;
+  text-transform: capitalize; /* Capitalize the first letter of each word */
 }
 
 .profile-item:hover .name,
-.profile-item:hover .email {
+.profile-item:hover .email,
+.profile-item:hover .role {
   transform: translateY(-3px);
 }
 
-@media (max-width: 768px) {
-  .profile-item {
-    width: 100%;
-  }
+
+
+
+
+
+
+
+.slider-input {
+  display: none;
+}
+
+/* Style for the slider label */
+.slider-label {
+  margin-top: -30px;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translate(0, -50%);
+  width: 60px;
+  height: 30px;
+  background-color: #8c9992;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Change background color on checked state */
+.slider-input:checked + .slider-label {
+  background-color: #2ecc71;
+}
+
+.slider-label::before {
+  content: '';
+  width: 28px;
+  height: 28px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Move the circular slider button on checked state */
+.slider-input:checked + .slider-label::before {
+  transform: translateX(28px); /* Move to the right when checked */
+}
+
+/* Move the circular slider button on unchecked state */
+.slider-input:not(:checked) + .slider-label::before {
+  transform: translateX(-8px); /* Move to the left when unchecked */
+}
+
+
+.slider-input:checked + .slider-label:hover {
+  background-color: #27ae60;
+}
+
+
+
+
+.delete-user-container {
+  text-align: right; /* Align the button to the right */
+  margin-top: 50px; /* Adjust top margin as needed */
+}
+
+/* Add specific styling for the "Delete User" button */
+.delete-user-button {
+  background-color: #e74c3c; /* Red color */
+  color: #fff; /* White text color */
+  border: none;
+  padding: 6px 12px; /* Adjust padding for a smaller button */
+  cursor: pointer;
+  border-radius: 40px;
+  font-size: 12px; /* Adjust font size for smaller text */
+  transition: background-color 0.3s ease-in-out;
+}
+
+.delete-user-button:hover {
+  background-color: #c0392b; /* Darker red color on hover */
 }

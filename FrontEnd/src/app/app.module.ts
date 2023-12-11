@@ -25,6 +25,7 @@ import { BrandPostComponent } from './Brand/brand-post/brand-post.component';
 import { InfluencerOfferComponent } from './Influencer/influencer-offer/influencer-offer.component';
 import { AdminHomeComponent } from './Admin/admin-home/admin-home.component';
 
+
 @NgModule({
   declarations: [
     AppComponent, // Add this line
@@ -44,7 +45,8 @@ import { AdminHomeComponent } from './Admin/admin-home/admin-home.component';
     BrandPostComponent,
     InfluencerOfferComponent,
     ProfileViewComponent,
-    AdminHomeComponent
+    AdminHomeComponent,
+
   ],
   imports: [
     BrowserModule,

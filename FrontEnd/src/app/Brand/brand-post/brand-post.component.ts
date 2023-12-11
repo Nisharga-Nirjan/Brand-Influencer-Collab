@@ -116,6 +116,11 @@ handleResponseReject(response: any): void {
   }
 }
 
+onProceedToPayment(userId: number): void {
+  this.router.navigate(['/brand-payment', userId]);
+}
+
+
 
 
 

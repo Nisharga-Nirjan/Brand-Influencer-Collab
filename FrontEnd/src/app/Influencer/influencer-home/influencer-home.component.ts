@@ -95,5 +95,11 @@ navigateToInfluencerOffer(): void {
   }
 }
 
+handleButtonClick(userId: number): void {
+  this.router.navigate(['/profile-view', userId]);
+}
+
+
+
 
 }

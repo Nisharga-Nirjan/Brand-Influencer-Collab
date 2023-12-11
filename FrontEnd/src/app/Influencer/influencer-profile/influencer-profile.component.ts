@@ -32,4 +32,24 @@ export class InfluencerProfileComponent implements OnInit {
       console.error('User ID not found.');
     }
   }
+
+
+
+  onChangePasswordClick() {
+    const oldPassword = prompt('Enter your old password:');
+    const newPassword = prompt('Enter your new password:');
+
+    if (oldPassword && newPassword) {
+      this.userService.changePassword(oldPassword, newPassword).subscribe(
+        (response) => {
+          console.log('Password changed successfully:', response);
+          // Handle success (e.g., display a success message)
+        },
+        (error) => {
+          console.error('Error changing password:', error);
+          // Handle error (e.g., display an error message)
+        }
+      );
+    }
+  }
 }

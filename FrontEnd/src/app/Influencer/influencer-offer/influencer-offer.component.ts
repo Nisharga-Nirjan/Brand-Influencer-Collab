@@ -3,6 +3,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-influencer-offer',
@@ -13,7 +14,7 @@ export class InfluencerOfferComponent implements OnInit {
   user: any; // Assuming you have a user object
   requestedPosts: any[] = [];
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
     this.userService.getUserProfile().pipe(
@@ -57,5 +58,16 @@ export class InfluencerOfferComponent implements OnInit {
       return 'text-default';
     }
   }
+
+
+  handleButtonClick(userId: number): void {
+    this.router.navigate(['/profile-view', userId]);
+  }
+
+  getPaymentColorClass(paymentStatus: string): string {
+    return paymentStatus.toLowerCase() === 'paid' ? 'text-green' : 'text-red';
+  }
+
+
 
 }

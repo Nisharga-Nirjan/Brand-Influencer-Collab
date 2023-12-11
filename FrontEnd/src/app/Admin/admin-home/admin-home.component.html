@@ -1,9 +1,19 @@
-<div class="registered-profiles">
-  <h2>Registered Profiles</h2>
+<div class="collab-profiles">
+  <h2 class="collab-title">Collab Profiles</h2>
   <ul>
     <li *ngFor="let profile of profiles" class="profile-item">
-      <span class="name">{{ profile.name }}</span> | 
-      <span class="email">{{ profile.email }}</span>
+      <div class="profile-content">
+        <span class="name" id="profileName" (click)="handleButtonClick(profile.id)">
+          {{ profile.name }}
+        </span>
+        <span class="email">{{ profile.email }}</span>
+        <span class="role">{{ profile.role }}</span>
+      </div>
+      <input type="checkbox" [id]="'slider' + profile.id" class="slider-input" [checked]="profile.status === 'true'" (change)="onCheckboxChange(profile)">
+      <label [for]="'slider' + profile.id" class="slider-label"></label>
+      <div class="delete-user-container">
+        <button class="delete-user-button" (click)="onDeleteUserClick(profile.id)">Delete User</button>
+      </div>
     </li>
   </ul>
 </div>

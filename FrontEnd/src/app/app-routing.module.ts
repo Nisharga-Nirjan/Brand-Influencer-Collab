@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'brand-profile', component: BrandProfileComponent },
   { path: 'brand-home', component: BrandHomeComponent },
   { path: 'brand-collab', component: BrandCollabComponent },
-  { path: 'brand-payment', component: BrandPaymentComponent },
+  { path: 'brand-payment/:id', component: BrandPaymentComponent },
   { path: 'influencer-profile', component: InfluencerProfileComponent },
   { path: 'influencer-home', component: InfluencerHomeComponent },
   { path: 'influencer-collab', component: InfluencerCollabComponent },

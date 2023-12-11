@@ -15,11 +15,11 @@
     <form id="paymentForm">
       <div class="form-group">
         <label for="brandName">Brand Name:</label>
-        <input type="text" id="brandName" name="brandName" value="Brand Name" required>
+        <p> {{ paymentDetails?.brand_name }} </p>
       </div>
       <div class="form-group">
         <label for="influencerName">Influencer Name:</label>
-        <input type="text" id="influencerName" name="influencerName" required>
+        <p> {{ paymentDetails?.influencer_name }} </p>
       </div>
       <div class="form-group">
         <label for="amount">Amount:</label>
@@ -53,7 +53,7 @@
         </div>
       </div>
       <div class="form-group">
-        <button type="submit">Submit Payment</button>
+        <button type="button" (click)="onSubmitPayment(paymentDetails.id)">Submit Payment</button>
       </div>
     </form>
   </div>

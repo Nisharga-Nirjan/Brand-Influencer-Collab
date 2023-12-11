@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject, forkJoin, of  } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable, Subject, of  } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -209,6 +208,44 @@ adminAllProfiles(userId: number): Observable<any[]> {
   return this.http.get<any[]>(requestUrl, { headers });
 }
 
+toggleUserStatus(userId: number): Observable<any> {
+  return this.http.post(`${this.apiUrl}/user/admin/verifyUser`, { id: userId }, {
+    headers: { Authorization: `Bearer ${localStorage.getItem(this.tokenKey)}` },
+  });
+}
+
+changePassword(oldPassword: string, newPassword: string): Observable<any> {
+  const decodedToken = this.getDecodedToken();
+  if (decodedToken && decodedToken.email) {
+    const headers = { Authorization: `Bearer ${localStorage.getItem(this.tokenKey)}` };
+    const requestUrl = `${this.apiUrl}/user/changePassword`;
+
+    return this.http.post<any>(requestUrl, { email: decodedToken.email, oldPassword, newPassword }, { headers });
+  }
+  throw new Error('Decoded token or user email not found.');
+}
+
+deleteUser(userId: number): Observable<any> {
+  const headers = { Authorization: `Bearer ${localStorage.getItem(this.tokenKey)}` };
+  const requestUrl = `${this.apiUrl}/user/admin/deleteUser`;
+
+  return this.http.post<any>(requestUrl, { id: userId }, { headers });
+}
 
 
+getPaymentDetails(id: number): Observable<any> {
+  const requestUrl = `${this.apiUrl}/collab/payment/${id}`;
+
+  return this.http.get<any>(requestUrl, {
+    headers: { Authorization: `Bearer ${localStorage.getItem(this.tokenKey)}` },
+  });
+}
+
+
+submitPayment(paymentData: any): Observable<any> {
+  const requestUrl = `${this.apiUrl}/collab/confirmPayment`;
+  return this.http.post<any>(requestUrl, paymentData, {
+    headers: { Authorization: `Bearer ${localStorage.getItem(this.tokenKey)}` },
+  });
+}
 }

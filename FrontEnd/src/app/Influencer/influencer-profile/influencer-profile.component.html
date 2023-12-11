@@ -1,32 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <!-- Include jQuery first -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!-- Then include Bootstrap JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-    <div class="container emp-profile">
+    <div class="container emp-profile" *ngIf="user">
         <form method="post">
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-img">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
-                        <div class="file btn btn-lg btn-primary">
-                            Change Photo
-                            <input type="file" name="file"/>
-                        </div>
+                        <img src="https://raw.githubusercontent.com/Ornate159/scraps/main/default-profile.jpg" alt=""/>
+                        
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="profile-head">
-                        <h5>{{ user?.name }}</h5>
-                        <p class="proile-rating">RANKINGS: <span>8/10</span></p>
+                        <h5>{{ user.name }}</h5>
+                        <p class="proile-rating">Registration ID: {{user.id}}</p>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" role="tab">About</a>
@@ -36,14 +26,24 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <!-- Call the onEditProfileClick method when the button is clicked -->
                     <button class="profile-edit-btn" (click)="onEditProfileClick()">Edit Profile</button>
+                    <div>
+                        <button class="change-password-btn" (click)="onChangePasswordClick()">Change Password</button>
+                      </div>
                   </div>
+                
                   
             </div>
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-work">
+                        <p>Business Link</p>
+                        <p>
+                            <a *ngIf="user?.website" href="{{ user.website }}" target="_blank" class="business-link website">
+                              {{ user.website }}
+                            </a>
+                            </p>
+
                         <p>Social Media Links</p>
   <!-- Facebook Link -->
   <p>
@@ -95,30 +95,62 @@
                                 </div>
                             </div>
                             
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Contact No</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{ user?.phone }}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Location</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{ user?.location }}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Origin City</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{ user?.origin_city }}</p>
-                                            </div>
-                                        </div>
+                            <div class="tab-content profile-tab" id="myTabContent">
+                                <div class="tab-pane fade show active" role="tabpanel">
+                                  <div class="row" *ngIf="user?.phone && user.phone !== 'Not Applicable'">
+                                    <div class="col-md-6">
+                                      <label>Contact No</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <p>
+                                        {{ user.phone }}
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-content profile-tab" id="myTabContent">
+                                <div class="tab-pane fade show active" role="tabpanel">
+                                  <div class="row" *ngIf="user?.gender && user.gender !== 'Not Applicable'">
+                                    <div class="col-md-6">
+                                      <label>Gender</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <p>
+                                        {{ user.gender }}
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-content profile-tab" id="myTabContent">
+                                <div class="tab-pane fade show active" role="tabpanel">
+                                  <div class="row" *ngIf="user?.location && user.location !== 'Not Applicable'">
+                                    <div class="col-md-6">
+                                      <label>Location</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <p>
+                                        {{ user.location }}
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-content profile-tab" id="myTabContent">
+                                <div class="tab-pane fade show active" role="tabpanel">
+                                  <div class="row" *ngIf="user?.origin_city && user.origin_city !== 'Not Applicable'">
+                                    <div class="col-md-6">
+                                      <label>Origin City</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <p>
+                                        {{ user.origin_city }}
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                                     </div>
                         </div>
 
@@ -132,51 +164,50 @@
                                 
                             </ul>
                         </div>
-
+<!----------------------------------------------------------------HEHE------------------------------------------------------------------------------------>
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" role="tabpanel">
-                                <div class="row">
+                                <div class="row" *ngIf="user?.established_year && user.established_year !== 'Not Applicable'">
                                     <div class="col-md-6">
-                                        <label>Experience(year/s)</label>
+                                        <label>Established Year</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>{{ user?.experience_year }}</p>
+                                        <p>
+                                                {{ user.established_year }}
+                                        </p>
                                     </div>
                                 </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>English Proficiency</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>{{ user?.english_proficiency }}</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Total Projects</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>230</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>English Level</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>Expert</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Availability</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>6 months</p>
-                                                </div>
-                                            </div>
                                         </div>
                             </div>
+                            <div class="tab-content profile-tab" id="myTabContent">
+                                <div class="tab-pane fade show active" role="tabpanel">
+                                  <div class="row" *ngIf="user?.experience_year && user.experience_year !== 'Not Applicable'">
+                                    <div class="col-md-6">
+                                      <label>Experience (year/s)</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <p>
+                                        {{ user.experience_year }}
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                            <div class="tab-content profile-tab" id="myTabContent">
+                                <div class="tab-pane fade show active" role="tabpanel">
+                                  <div class="row" *ngIf="user?.english_proficiency && user.english_proficiency !== 'Not Applicable'">
+                                    <div class="col-md-6">
+                                      <label>English Proficiency</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <p>
+                                        {{ user.english_proficiency }}
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                     </div>
 
                     

@@ -98,8 +98,14 @@ export class NavigationComponent implements OnInit, OnDestroy {
   }
 
   getButtonLabel(): string {
-    return this.userRole === 'brand' ? 'Posts' : 'Offers';
-}
+    if (this.userRole === 'brand') {
+      return 'Posts';
+    } else if (this.userRole === 'influencer') {
+      return 'Offers';
+    } else {
+      return ''; // For 'admin', show nothing
+    }
+  }
 
 navigateToBrandPost() {
     this.router.navigate(['/brand-post']); // Replace 'brand-posts' with the actual route for the brand post page
