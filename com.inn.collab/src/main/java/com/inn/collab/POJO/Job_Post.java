@@ -5,7 +5,6 @@ import lombok.Data;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
-import java.text.ParseException;
 
 import javax.persistence.Entity;
 import java.io.Serializable;

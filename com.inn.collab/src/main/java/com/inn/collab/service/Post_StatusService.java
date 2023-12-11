@@ -1,11 +1,8 @@
 package com.inn.collab.service;
 
-import com.inn.collab.wrapper.JobWrapper;
 import com.inn.collab.wrapper.Post_StatusWrapper;
-import com.inn.collab.wrapper.UserWrapper;
 import org.springframework.http.ResponseEntity;
 
-import java.awt.*;
 import java.util.List;
 import java.util.Map;
 public interface Post_StatusService {

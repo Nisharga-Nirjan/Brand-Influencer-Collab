@@ -1,27 +1,21 @@
 package com.inn.collab.serviceImpl;
 
-import com.google.common.base.Strings;
-import com.inn.collab.JWT.InfluencerUserDetailsService;
-import com.inn.collab.JWT.JwtFilter;
-import com.inn.collab.JWT.JwtUtil;
 import com.inn.collab.POJO.Job_Post;
-import com.inn.collab.POJO.User_Signup;
+
 import com.inn.collab.constents.CollabConstents;
 import com.inn.collab.dao.JobDao;
-import com.inn.collab.dao.Post_StatusDao;
+
 import com.inn.collab.dao.UserDao;
 import com.inn.collab.service.JobService;
 import com.inn.collab.utils.CollabUtils;
-import com.inn.collab.utils.EmailUtils;
+
 import com.inn.collab.wrapper.JobWrapper;
-import com.inn.collab.wrapper.UserWrapper;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
+
 import org.springframework.stereotype.Service;
 import java.util.*;
 

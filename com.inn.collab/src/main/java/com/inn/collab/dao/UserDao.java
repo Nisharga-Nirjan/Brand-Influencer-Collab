@@ -2,7 +2,6 @@ package com.inn.collab.dao;
 
 import com.inn.collab.POJO.User_Signup;
 import com.inn.collab.wrapper.UserWrapper;
-import org.apache.catalina.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.repository.query.Param;

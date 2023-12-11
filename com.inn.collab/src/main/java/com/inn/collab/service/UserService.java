@@ -1,10 +1,8 @@
 package com.inn.collab.service;
 
-import com.inn.collab.wrapper.JobWrapper;
 import com.inn.collab.wrapper.UserWrapper;
 import org.springframework.http.ResponseEntity;
 
-import java.awt.*;
 import java.util.List;
 import java.util.Map;
 

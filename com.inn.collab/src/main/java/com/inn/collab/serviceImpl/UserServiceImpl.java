@@ -4,7 +4,7 @@ import com.google.common.base.Strings;
 import com.inn.collab.JWT.InfluencerUserDetailsService;
 import com.inn.collab.JWT.JwtFilter;
 import com.inn.collab.JWT.JwtUtil;
-import com.inn.collab.POJO.Post_Status;
+
 import com.inn.collab.POJO.User_Signup;
 import com.inn.collab.constents.CollabConstents;
 import com.inn.collab.dao.*;
@@ -13,7 +13,7 @@ import com.inn.collab.utils.CollabUtils;
 import com.inn.collab.utils.EmailUtils;
 import com.inn.collab.wrapper.UserWrapper;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.User;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

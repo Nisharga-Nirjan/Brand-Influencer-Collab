@@ -1,11 +1,7 @@
 package com.inn.collab.serviceImpl;
-import com.inn.collab.POJO.Job_Post;
 import com.inn.collab.POJO.User_Signup;
 import com.inn.collab.constents.CollabConstents;
 import com.inn.collab.dao.Brand_Dao;
-import com.inn.collab.dao.JobDao;
-import com.inn.collab.dao.Post_StatusDao;
-import com.inn.collab.dao.UserDao;
 import com.inn.collab.service.Brand_Service;
 import com.inn.collab.utils.CollabUtils;
 import com.inn.collab.wrapper.UserWrapper;

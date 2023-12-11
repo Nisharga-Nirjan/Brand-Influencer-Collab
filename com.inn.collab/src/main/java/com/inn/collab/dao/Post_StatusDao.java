@@ -1,8 +1,6 @@
 package com.inn.collab.dao;
 
 import com.inn.collab.POJO.Post_Status;
-import com.inn.collab.POJO.User_Signup;
-import com.inn.collab.wrapper.JobWrapper;
 import com.inn.collab.wrapper.Post_StatusWrapper;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

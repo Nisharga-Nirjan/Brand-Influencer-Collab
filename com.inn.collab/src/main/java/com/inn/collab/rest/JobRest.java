@@ -1,7 +1,6 @@
 package com.inn.collab.rest;
 
 import com.inn.collab.wrapper.JobWrapper;
-import com.inn.collab.wrapper.UserWrapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
