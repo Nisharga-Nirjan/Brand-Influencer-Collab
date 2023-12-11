@@ -1,2 +1,2 @@
 # Backend of Brand-Influencer-Collab
-This project was generated with `Springboot 2.7.17` and `Java17`
+This project was generated with `Springboot v2.7.17` and `Java v17`. Necessary plugins like `Lombok` and others will be notified automatically when opening the project in an IDE. In our case, we used `Intellij IDEA Community Edition`
