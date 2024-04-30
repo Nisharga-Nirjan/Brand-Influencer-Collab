@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/user.service'; // Update the path
-import { Router } from '@angular/router'; // Import the Router
+import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
+import { JSEncrypt } from 'jsencrypt';
 
 @Component({
   selector: 'app-influencer-profile',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router'; // Import the Router
   styleUrls: ['./influencer-profile.component.css'],
 })
 export class InfluencerProfileComponent implements OnInit {
-  user: any; // Adjust the type based on your user details
+  user: any;
 
   constructor(private userService: UserService, private router: Router) {}
 
@@ -16,6 +17,8 @@ export class InfluencerProfileComponent implements OnInit {
     this.userService.getUserProfile().subscribe(
       (data) => {
         this.user = data;
+        
+        this.decryptData();
       },
       (error) => {
         console.error('Error fetching user profile:', error);
@@ -23,9 +26,41 @@ export class InfluencerProfileComponent implements OnInit {
     );
   }
 
+  decryptData() {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      console.error('JWT token not found in local storage.');
+      return;
+    }
+    const decodedToken = this.parseJwt(token);
+    if (!decodedToken || !decodedToken.privateKey) {
+      console.error('Private key not found in JWT token.');
+      return;
+    }
+    const privateKey = decodedToken.privateKey;
+    const decryptor = new JSEncrypt();
+    decryptor.setPrivateKey(privateKey);
+
+    // Decryption
+    this.user.location = decryptor.decrypt(this.user.location);
+    this.user.origin_city = decryptor.decrypt(this.user.origin_city);
+    this.user.phone = decryptor.decrypt(this.user.phone);
+    this.user.established_year = decryptor.decrypt(this.user.established_year);
+    this.user.facebook = decryptor.decrypt(this.user.facebook);
+    this.user.instagram = decryptor.decrypt(this.user.instagram);
+    this.user.twitter = decryptor.decrypt(this.user.twitter);
+    this.user.youtube = decryptor.decrypt(this.user.youtube);
+  }
+
+  parseJwt(token: string) {
+    try {
+      return JSON.parse(atob(token.split('.')[1]));
+    } catch (e) {
+      return null;
+    }
+  }
+
   onEditProfileClick() {
-    // Use the user's ID or any unique identifier to create a dynamic route
-    // For example, assuming user.id is the unique identifier
     if (this.user && this.user.id) {
       this.router.navigate(['/influencer-profile-edit', this.user.id]);
     } else {

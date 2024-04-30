@@ -11,17 +11,28 @@ import com.inn.collab.dao.*;
 import com.inn.collab.service.UserService;
 import com.inn.collab.utils.CollabUtils;
 import com.inn.collab.utils.EmailUtils;
+import com.inn.collab.utils.RSAUtils;
 import com.inn.collab.wrapper.UserWrapper;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.core.KeyFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.security.KeyPair;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.*;
+
+
 
 @Slf4j
 @Service
@@ -58,25 +69,69 @@ public class UserServiceImpl implements UserService {
     @Autowired
     EmailUtils emailUtils;
 
+    private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
+
+    private KeyPair generateUserKeyPair() throws Exception {
+        return RSAUtils.generateKeyPair();
+    }
+
+    // Method to encrypt user data
+    private String encryptData(String data, PublicKey publicKey) {
+        try {
+            return RSAUtils.encrypt(data, publicKey);
+        } catch (Exception ex) {
+            log.error("Error encrypting data: {}", ex.getMessage());
+            return null;
+        }
+    }
+
+
+
+
     @Override
     public ResponseEntity<String> signUp(Map<String, String> requestMap) {
         log.info("Inside signup {}", requestMap);
         try {
             if (validateSignUpMap(requestMap)) {
-                User_Signup user_signup = userDao.findByEmailId(requestMap.get("email"));
-                if (Objects.isNull(user_signup)) {
-                    Integer id_length = requestMap.get("bin_nid_number").length();
-                    if (id_length == 13){  //For Brands
-                        userDao.save(getBrandFromMap(requestMap));
-                        return CollabUtils.getResponseEntity("Brand Successfully Registered.", HttpStatus.OK);
-                    } else if (id_length == 11) {  //For Influencers
-                        userDao.save(getInfluencerFromMap(requestMap));
-                        return CollabUtils.getResponseEntity("Influencer Successfully Registered.", HttpStatus.OK);
-                    }
-                    else {
+                User_Signup existingUser = userDao.findByEmailId(requestMap.get("email"));
+                if (existingUser == null) {
+                    String password = requestMap.get("password");
+                    String salt = BCrypt.gensalt(); // Generate random salt
+                    String saltedPassword = password + salt;
+                    String hashedPassword = passwordEncoder.encode(saltedPassword);
+
+                    User_Signup newUser;
+                    Integer idLength = requestMap.get("bin_nid_number").length();
+                    if (idLength == 13) {
+                        newUser = getBrandFromMap(requestMap);
+                    } else if (idLength == 11) {
+                        newUser = getInfluencerFromMap(requestMap);
+                    } else {
                         return CollabUtils.getResponseEntity("Identification Number is invalid", HttpStatus.BAD_REQUEST);
                     }
 
+                    // Generate RSA key pair for the user
+                    KeyPair userKeyPair = generateUserKeyPair();
+
+                    // Set the generated private key to the privateKey field
+                    newUser.setPrivateKey(Base64.getEncoder().encodeToString(userKeyPair.getPrivate().getEncoded()));
+
+                    // Encrypt sensitive data using the user's public key
+                    newUser.setBin_nid_number(encryptData(requestMap.get("bin_nid_number"), userKeyPair.getPublic()));
+                    newUser.setOrigin_city(encryptData(requestMap.get("origin_city"), userKeyPair.getPublic()));
+                    newUser.setLocation(encryptData(requestMap.get("location"), userKeyPair.getPublic()));
+
+                    // Hashing+salting
+                    newUser.setPassword(hashedPassword);
+                    newUser.setSalt(salt);
+
+                    // Set the user's public key to the publicKey field
+                    newUser.setPublicKey(Base64.getEncoder().encodeToString(userKeyPair.getPublic().getEncoded()));
+
+                    userDao.save(newUser);
+
+                    return CollabUtils.getResponseEntity("User Successfully Registered.", HttpStatus.OK);
                 } else {
                     return CollabUtils.getResponseEntity("Email already exists.", HttpStatus.BAD_REQUEST);
                 }
@@ -88,8 +143,6 @@ public class UserServiceImpl implements UserService {
         }
         return CollabUtils.getResponseEntity(CollabConstents.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
     }
-
-
 
     private boolean validateSignUpMap(Map<String, String> requestMap) {
         return requestMap.containsKey("name") && requestMap.containsKey("password")
@@ -131,20 +184,36 @@ public class UserServiceImpl implements UserService {
     public ResponseEntity<String> login(Map<String, String> requestMap) {
         log.info("Inside login");
         try {
-            Authentication auth = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(requestMap.get("email"), requestMap.get("password")));
-            if (auth.isAuthenticated()){
-                if (influencerUserDetailsService.getUserDetail().getStatus().equalsIgnoreCase("true")){
-                    return new ResponseEntity<String>("{\"token\":\""+jwtUtil.generateToken(influencerUserDetailsService.getUserDetail().getId(),influencerUserDetailsService.getUserDetail().getEmail(),influencerUserDetailsService.getUserDetail().getName(), influencerUserDetailsService.getUserDetail().getRole()) + "\"}", HttpStatus.OK);
-                }
-                else {
-                    return new ResponseEntity<String>("{\"message\":\""+"Wait for admin approval."+"\"}", HttpStatus.BAD_REQUEST);
-                }
-            }
+            String email = requestMap.get("email");
+            String password = requestMap.get("password");
 
-        }catch (Exception ex){
-            log.error("{}",ex);
+            User_Signup user = userDao.findByEmail(email);
+            if (user != null) {
+                String storedPassword = user.getPassword();
+                String storedSalt = user.getSalt();
+
+                // Combine provided password with stored salt
+                String saltedPassword = password + storedSalt;
+
+                // Use BCrypt to verify the password
+                if (passwordEncoder.matches(saltedPassword, storedPassword)) {
+                    if ("true".equalsIgnoreCase(user.getStatus())) {
+                        // Generate and return JWT token upon successful login
+                        String token = jwtUtil.generateToken(user.getId(), user.getEmail(), user.getName(), user.getRole(), user.getPublicKey(), user.getPrivateKey());
+                        return ResponseEntity.ok("{\"token\":\"" + token + "\"}");
+                    } else {
+                        return ResponseEntity.badRequest().body("{\"message\":\"Wait for admin approval.\"}");
+                    }
+                } else {
+                    return ResponseEntity.badRequest().body("{\"message\":\"Bad Credentials.\"}");
+                }
+            } else {
+                return ResponseEntity.badRequest().body("{\"message\":\"Bad Credentials.\"}");
+            }
+        } catch (Exception ex) {
+            log.error("Error during login: {}", ex.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("{\"message\":\"Something went wrong.\"}");
         }
-        return new ResponseEntity<String>("{\"message\":\""+"Bad Credentials."+"\"}", HttpStatus.BAD_REQUEST);
     }
 
     @Override

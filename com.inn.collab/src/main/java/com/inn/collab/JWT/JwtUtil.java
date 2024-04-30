@@ -37,12 +37,14 @@ public class JwtUtil {
         return extractExpiration(token).before(new Date());
     }
 
-    public String generateToken(Integer id, String email, String name, String role){
+    public String generateToken(Integer id, String email, String name, String role, String publicKey, String privateKey){
         Map<String,Object> claims = new HashMap<>();
         claims.put("id", id);
         claims.put("email",email);
         claims.put("name", name);
         claims.put("role",role);
+        claims.put("publicKey", publicKey);
+        claims.put("privateKey", privateKey);
         return createToken(claims,email);
     }
 

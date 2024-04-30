@@ -1,9 +1,11 @@
 package com.inn.collab.wrapper;
 
+import com.inn.collab.utils.RSAUtils;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
+import java.security.PrivateKey;
 
 
 @Data
@@ -49,7 +51,12 @@ public class UserWrapper {
 
     private String english_proficiency;
 
-    public UserWrapper(Integer id, String email, String name, String password, String gender, String bin_nid_number, String origin_city, String location, String status,String phone,String established_year, String website,String facebook,String instagram, String twitter,String youtube, String experience_year,String english_proficiency ) {
+    private String privateKey;
+
+
+
+
+    public UserWrapper(Integer id, String email, String name, String password, String gender, String bin_nid_number, String origin_city, String location, String status,String phone,String established_year, String website,String facebook,String instagram, String twitter,String youtube, String experience_year,String english_proficiency, String privateKey ) {
         this.id = id;
         this.email = email;
         this.name = name;
@@ -68,9 +75,10 @@ public class UserWrapper {
         this.youtube = youtube;
         this.experience_year = experience_year;
         this.english_proficiency = english_proficiency;
+        this.privateKey = privateKey;
     }
 
-    public UserWrapper(Integer id, String email, String name, String gender, String origin_city, String location, String status, String role, String phone,String established_year, String website,String facebook,String instagram, String twitter,String youtube, String experience_year,String english_proficiency ) {
+    public UserWrapper(Integer id, String email, String name, String gender, String origin_city, String location, String status, String role, String phone,String established_year, String website,String facebook,String instagram, String twitter,String youtube, String experience_year,String english_proficiency, String privateKey ) {
         this.id = id;
         this.email = email;
         this.name = name;
@@ -88,6 +96,7 @@ public class UserWrapper {
         this.youtube = youtube;
         this.experience_year = experience_year;
         this.english_proficiency = english_proficiency;
+        this.privateKey = privateKey;
     }
 }
 
