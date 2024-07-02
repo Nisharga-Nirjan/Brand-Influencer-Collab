@@ -1,6 +1,6 @@
 # Brand-Influencer-Collab
 
-Welcome to this website which has been built using `Angular CLI v16.2.7(For frontend)`, `Springboot Java v2.7.17(For Backend)` and `Java v17(For Backend)`. Also, for database,` 10.4.22-MariaDB` was used using `XAMPP Control Panel v3.3.0` and the project was edited/executed using `Visual Studio Code`  This website intends to create a common platform where brand and influencers can collaborate for work purpose and build their profile.
+Welcome to this website which has been built using `Angular CLI v16.2.7 (For frontend)`, `Springboot Java v2.7.17 (For Backend)` and `Java v17 (For Backend)`. Also, for database,` 10.4.22-MariaDB` has been used using `XAMPP Control Panel v3.3.0` and the project has been edited/executed using `Visual Studio Code`  This website intends to create a common platform where brand and influencers can collaborate for work purpose and build their profile.
 
 # Project Description:
 
