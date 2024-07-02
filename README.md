@@ -10,38 +10,38 @@ This project features a web system where users(Brands,Influencers) will create t
 
 # 1. Initiating Collaboration
 
-+ 1.Influencers and Brands can see each other’s availability of collaboration and requirements for confirming the deal
-+ 2.Influencers can click on “Apply” of a particular brand  if they like the brand’s requirements
-+ 3.Brands can click on “Hire Me” of a particular influencer if the influencer’s information and skills are satisfactory for them
-+ 4.After clicking from either side, the other has to confirm if they want confirm the collaboration
++ Influencers and Brands can see each other’s availability of collaboration and requirements for confirming the deal
++ Influencers can click on “Apply” of a particular brand  if they like the brand’s requirements
++ Brands can click on “Hire Me” of a particular influencer if the influencer’s information and skills are satisfactory for them
++ After clicking from either side, the other has to confirm if they want confirm the collaboration
 
 # 2. Managing Influencer Details
 
-+ 1.Influencers can view their personal information
-+ 2.Influencers can modify most of their information like contact details, skillset, etc.
-+ 3.Influencers can view the brands they have worked with previously and review on them
-+ 4.Influencers can view the reviews that they have gotten from previous brands
++ Influencers can view their personal information
++ Influencers can modify most of their information like contact details, skillset, etc.
++ Influencers can view the brands they have worked with previously and review on them
++ Influencers can view the reviews that they have gotten from previous brands
 
 # 3. Managing Brand Details
 
-+ 1.Brands can post a collaboration offer with the requirements
-+ 2.Brands can modify or delete the offer if not needed anymore
-+ 3.Brands can view the influencers they have worked with previously and review on them
-+ 4.Brands can view the reviews that they have gotten from previous influencers
++ Brands can post a collaboration offer with the requirements
++ Brands can modify or delete the offer if not needed anymore
++ Brands can view the influencers they have worked with previously and review on them
++ Brands can view the reviews that they have gotten from previous influencers
 
 # 4. Managing Both Types of Users by Admin
 
-+ 1.Admin can view all the users and all of their details
-+ 2.Admin can verify a user’s credibility if it is reported
-+ 3.Admin can disable a user’s account if it has a certain amount of negative reviews
-+ 4.Users can reach out to admin through a live chat for any query or complaint
++ Admin can view all the users and all of their details
++ Admin can verify a user’s credibility if it is reported
++ Admin can disable a user’s account if it has a certain amount of negative reviews
++ Users can reach out to admin through a live chat for any query or complaint
 
 # 5. Completing Payment
 
-+ 1.After confirmation of collaboration from both sides, the brand side webpage will be redirected to a payment gateway
-+ 2.Brands can select one from multiple payment options
-+ 3.Brand will then provide account information and the requested amount
-+ 4.After payment is done, a prompt page will open displaying successful payment
++ After confirmation of collaboration from both sides, the brand side webpage will be redirected to a payment gateway
++ Brands can select one from multiple payment options
++ Brand will then provide account information and the requested amount
++ After payment is done, a prompt page will open displaying successful payment
 
 # 6. Security Features
 
