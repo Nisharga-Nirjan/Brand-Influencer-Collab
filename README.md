@@ -44,9 +44,10 @@ This project features a web system where users(Brands,Influencers) will create t
 + 4.After payment is done, a prompt page will open displaying successful payment
 
 # 6. Security Features
-+ 1. Password Salt and Hash using BCrypt
-+ 2. Encryption and Decryption of necessary information using RSA Algorithm
-+ 3. Private key and Public key temporarily stored in DB.
+
++ Password Salt and Hash using BCrypt
++ Encryption and Decryption of necessary information using RSA Algorithm
++ Private key and Public key temporarily stored in DB.
 
 
 
